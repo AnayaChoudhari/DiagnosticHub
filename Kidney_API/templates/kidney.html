@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="../static/img/health.ico" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Josefin Sans", sans-serif;
+      }
+
+      body {
+        background-color: #070f2b;
+        color: #f0f5f9;
+      }
+
+      .navbar {
+        background-color: #1b1a55 !important;
+      }
+
+      .navbar-dark .navbar-nav .nav-link {
+        color: #f0f5f9 !important;
+        transition: color 0.2s ease;
+      }
+
+      .navbar-dark .navbar-toggler-icon {
+        color: #f0f5f9 !important;
+      }
+
+      .navbar-dark .navbar-nav .nav-link:hover {
+        color: #535c91 !important;
+      }
+
+      .navbar-dark .navbar-nav .nav-link:focus,
+      .navbar-dark .navbar-nav .nav-link:active {
+        color: #9290c3 !important;
+      }
+
+      .container-fluid.view {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        min-height: 100vh;
+      }
+
+      .btn-danger {
+        background-color: #535c91;
+        border-color: #535c91;
+        color: #f0f5f9;
+      }
+
+      .btn-danger:hover {
+        background-color: #535c91;
+        border-color: #535c91;
+      }
+
+      .btn-danger:focus,
+      .btn-danger:active {
+        background-color: #9290c3;
+        border-color: #9290c3;
+      }
+
+      .form-control {
+        border-color: #1b1a55;
+        background-color: #1b1a55;
+        color: #f0f5f9;
+        border-radius: 0.25rem;
+        height: calc(1.5em + 1rem + 2px);
+        padding: 0.5rem 1rem;
+      }
+
+      .form-control:focus {
+        border-color: #535c91;
+        box-shadow: 0 0 0 0.2rem rgba(81, 83, 103, 0.25);
+      }
+
+      .result-message {
+        margin-top: 20px;
+        padding: 20px;
+        text-align: center;
+        font-size: 1.2rem; /* larger text for visibility */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .good-news {
+        background-color: #dff0d8;
+        color: #3c763d;
+        border: 1px solid #d6e9c6;
+      }
+
+      .bad-news {
+        background-color: #f2dede;
+        color: #a94442;
+        border: 1px solid #ebccd1;
+      }
+    </style>
+    <title>Kidney Disease Prediction</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="../../index.html">Health App</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="../../Heart_API/templates/heart.html"
+                >Heart Disease<span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="kidney.html">Kidney Disease</a>
+            </li>
+            <li class="nav-item active">
+              <a
+                class="nav-link"
+                href="../../Diabetes_API/templates/diabetes.html"
+                >Diabetes</a
+              >
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="../../Liver_API/templates/liver.html"
+                >Liver Diease</a
+              >
+            </li>
+            <li class="nav-item active">
+              <a
+                class="nav-link"
+                href="../../Breast_Cancer API/templates/cancer.html"
+                >Cancer</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div id="intro" class="container-fluid view">
+        <div class="col-lg-6 col-md-6 col-12 mx-auto">
+          <h1 class="text-center text-capitalize pt-3">
+            Know your chances of getting kidney disease in one Click!
+          </h1>
+          <hr class="w-75 mx-auto pt-3" />
+          <form onsubmit="return validateForm()">
+            <div class="form-group">
+              <label for="bp">Blood Pressure</label>
+              <input
+                class="form-control"
+                type="number"
+                id="bp"
+                name="bp"
+                required="required"
+                placeholder="Blood Pressure"
+                min="60"
+                max="180"
+              />
+              <div id="bp-error" class="text-danger"></div>
+            </div>
+            <div class="form-group">
+              <label for="sg">Specific Gravity</label>
+              <input
+                class="form-control"
+                type="number"
+                step="0.001"
+                id="sg"
+                name="sg"
+                required="required"
+                placeholder="Specific Gravity"
+                min="1.001"
+                max="1.025"
+              />
+              <div id="sg-error" class="text-danger"></div>
+            </div>
+            <div class="form-group">
+              <label for="alb">Albumin</label>
+              <input
+                class="form-control"
+                type="number"
+                step="any"
+                id="alb"
+                name="alb"
+                required="required"
+                placeholder="Albumin"
+                min="0"
+                max="5"
+              />
+              <div id="alb-error" class="text-danger"></div>
+            </div>
+            <div class="form-group">
+              <label for="hemo">Hemoglobin</label>
+              <input
+                class="form-control"
+                type="number"
+                step="any"
+                id="hemo"
+                name="hemo"
+                required="required"
+                placeholder="Hemoglobin"
+                min="3"
+                max="17"
+              />
+              <div id="hemo-error" class="text-danger"></div>
+            </div>
+            <div class="form-group">
+              <label for="htn">Hypertension</label>
+              <select
+                class="form-control"
+                id="htn"
+                name="htn"
+                required="required"
+                placeholder="Hypertension"
+              >
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dm">Diabetes Mellitus</label>
+              <select
+                class="form-control"
+                id="dm"
+                name="dm"
+                required="required"
+                placeholder="Diabetes Mellitus"
+              >
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-danger btn-block">
+              Predict
+            </button>
+            <div id="result" class="result-message text-center mt-3"></div>
+          </form>
+        </div>
+      </div>
+    </header>
+    <script>
+      let counter = 0;
+      let currentMessage = null;
+      let currentMessageClass = "";
+
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form from submitting to a new page
+
+          var bp = document.getElementById("bp").value;
+          var sg = document.getElementById("sg").value;
+          var alb = document.getElementById("alb").value;
+          var hemo = document.getElementById("hemo").value;
+          var bpError = document.getElementById("bp-error");
+          var sgError = document.getElementById("sg-error");
+          var albError = document.getElementById("alb-error");
+          var hemoError = document.getElementById("hemo-error");
+          var resultDiv = document.getElementById("result");
+
+          if (bp < 60 || bp > 180) {
+            bpError.innerHTML =
+              "Wrong input! Blood Pressure should be between 60 and 180 mm Hg.";
+            return false;
+          } else {
+            bpError.innerHTML = "";
+          }
+
+          if (sg < 1.001 || sg > 1.025) {
+            sgError.innerHTML =
+              "Wrong input! Specific Gravity should be between 1.001 and 1.025.";
+            return false;
+          } else {
+            sgError.innerHTML = "";
+          }
+
+          if (alb < 0 || alb > 5) {
+            albError.innerHTML =
+              "Wrong input! Albumin should be between 0 and 5.";
+            return false;
+          } else {
+            albError.innerHTML = "";
+          }
+
+          if (hemo < 3 || hemo > 17) {
+            hemoError.innerHTML =
+              "Wrong input! Hemoglobin should be between 3 and 17.";
+            return false;
+          } else {
+            hemoError.innerHTML = "";
+          }
+
+          // Update message only after five submissions
+          if (counter % 5 === 0) {
+            var isGoodNews = Math.random() < 0.5;
+            currentMessageClass = isGoodNews ? "good-news" : "bad-news";
+            currentMessage = isGoodNews
+              ? "No need to fear. You have no dangerous symptoms of the disease."
+              : "Sorry, your chances of getting the disease. Please consult the doctor immediately.";
+          }
+
+          resultDiv.className = "result-message " + currentMessageClass; // Apply styling class
+          resultDiv.innerHTML = currentMessage;
+
+          counter++; // Increment submission counter
+          return true;
+        });
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

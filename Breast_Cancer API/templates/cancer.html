@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="../static/img/health.ico" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Josefin Sans", sans-serif;
+      }
+
+      html,
+      body,
+      header,
+      #intro {
+        height: 100%;
+      }
+
+      body {
+        background-color: #070f2b;
+        color: #f0f5f9;
+      }
+
+      .navbar {
+        background-color: #1b1a55 !important;
+      }
+
+      .navbar-dark .navbar-nav .nav-link {
+        color: #f0f5f9 !important;
+        transition: color 0.2s ease; /* Added transition for smooth color change */
+      }
+
+      .navbar-dark .navbar-toggler-icon {
+        color: #f0f5f9 !important;
+      }
+
+      .navbar-dark .navbar-nav .nav-link:hover {
+        color: #535c91 !important; /* Changed hover color to match Predict button */
+      }
+
+      .navbar-dark .navbar-nav .nav-link:focus,
+      .navbar-dark .navbar-nav .nav-link:active {
+        color: #9290c3 !important; /* Changed active/focus color to match Predict button hover */
+      }
+
+      .container-fluid.view {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        min-height: 100vh; /* Ensure full viewport height */
+      }
+
+      .btn-danger {
+        background-color: #535c91;
+        border-color: #535c91;
+        color: #f0f5f9;
+      }
+
+      .btn-danger:hover {
+        background-color: #535c91;
+        border-color: #535c91;
+      }
+
+      .btn-danger:focus,
+      .btn-danger:active {
+        background-color: #9290c3;
+        border-color: #9290c3;
+      }
+
+      .form-control {
+        border-color: #1b1a55;
+        background-color: #1b1a55;
+        color: #f0f5f9;
+        border-radius: 0.25rem; /* Added border-radius for slightly curved borders */
+        height: calc(1.5em + 1rem + 2px); /* Adjusted input box height */
+        padding: 0.5rem 1rem; /* Adjusted padding */
+      }
+
+      .form-control:focus {
+        border-color: #535c91;
+        box-shadow: 0 0 0 0.2rem rgba(81, 83, 103, 0.25);
+      }
+    </style>
+    <title>Breast Cancer Prediction</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="../../index.html">Health App</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="../../Heart_API/templates/heart.html"
+                >Heart Disease<span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="../../Kidney_API/templates/kidney.html"
+                >Kidney Disease</a
+              >
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="diabetes.html">Diabetes</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="../../Liver_API/templates/liver.html"
+                >Liver Disease</a
+              >
+            </li>
+            <li class="nav-item active">
+              <a
+                class="nav-link"
+                href="../../Breast_Cancer API/templates/cancer.html"
+                >Cancer</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div id="intro" class="container-fluid view">
+        <div class="col-lg-6 col-md-6 col-12 mx-auto">
+          <!-- Centered the form horizontally -->
+          <h1 class="text-center text-capitalize pt-3">
+            Know your chances of getting Breast Cancer in one Click!
+          </h1>
+          <hr class="w-75 mx-auto pt-3" />
+          <form action="result.html" method="post">
+            <div class="form-group">
+              <label for="concave points_mean"
+                >Mean of the Concave Points</label
+              >
+              <input
+                class="form-control"
+                type="number"
+                id="concave points_mean"
+                name="concave points_mean"
+                required="required"
+                placeholder="Mean of the Concave Points"
+              />
+            </div>
+            <div class="form-group">
+              <label for="area_mean">Mean of the Area</label>
+              <input
+                class="form-control"
+                type="number"
+                id="area_mean"
+                name="area_mean"
+                required="required"
+                placeholder="Mean of the Area"
+              />
+            </div>
+            <div class="form-group">
+              <label for="texture_mean">Mean of the Texture</label>
+              <input
+                class="form-control"
+                type="number"
+                id="texture_mean"
+                name="texture_mean"
+                required="required"
+                placeholder="Mean of the Texture"
+              />
+            </div>
+            <div class="form-group">
+              <label for="radius_mean">Mean of the Radius</label>
+              <input
+                class="form-control"
+                type="number"
+                id="radius_mean"
+                name="radius_mean"
+                required="required"
+                placeholder="Mean of the Radius"
+              />
+            </div>
+            <button type="submit" class="btn btn-danger btn-block">
+              Predict
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
