@@ -28,5 +28,4 @@ a. Created the ML model and saved it using joblib.<br>
 b. Created app.py and the webpage page it will render to.<br>
 c. Created an EC2 instance over RHEL8.<br>
 d. Similarly Deployed all models and connected them to the home page inside apache web server.<br>
-# DiagnosticHub
-# DiagnosticHub
+
