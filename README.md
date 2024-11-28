@@ -1,4 +1,4 @@
-# [Health App](http://ec2-18-217-53-87.us-east-2.compute.amazonaws.com/)
+# [DiagnosticHub](http://ec2-18-217-53-87.us-east-2.compute.amazonaws.com/)
 
 This project is an end to end data science project that is able to predict the chances of getting a disease in organs like liver, kidey, heart, etc.<br><br>
 
@@ -12,7 +12,7 @@ This project is an end to end data science project that is able to predict the c
 
 # Libraries Used:
 
-1.  Sci-kit Learn
+1.  sci-kit Learn
 2.  Flask
 3.  Joblib
 4.  Pandas
