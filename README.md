@@ -1,31 +1,73 @@
-# [DiagnosticHub](http://ec2-18-217-53-87.us-east-2.compute.amazonaws.com/)
+## DiagnosticHub
 
-This project is an end to end data science project that is able to predict the chances of getting a disease in organs like liver, kidey, heart, etc.<br><br>
+DiagnosticHub is an advanced disease prediction system designed to predict the likelihood of conditions such as heart disease, diabetes, liver disease, kidney disease, and breast cancer. This project aims to enhance diagnostic accuracy, offering a reliable tool for early detection of critical health conditions.
 
-# Dataset Used
+### Features
 
-1. [Breast Cancer](https://www.kaggle.com/uciml/breast-cancer-wisconsin-data): Winconsin Breast Cancer Dataset
-2. [Diabetes](https://www.kaggle.com/uciml/pima-indians-diabetes-database): Pima Indian Diabetes Dataset
-3. [Liver](https://www.kaggle.com/uciml/indian-liver-patient-records): Indian Patient Liver Records
-4. [Heart](https://www.kaggle.com/ronitf/heart-disease-uci): Heart Disease Dataset
-5. [Kidney](https://www.kaggle.com/mansoordaku/ckdisease): Chronic Kidney Disease Dataset
+- **Multi-Disease Prediction**: Predicts the likelihood of developing heart disease, diabetes, liver disease, kidney disease, and breast cancer using advanced machine learning models.
+- **Real-time Health Risk Assessment:** Provides immediate feedback on disease risk, offering users valuable insights for early intervention and health management.
+- **Prediction Across Multiple Organs:** Predicts the likelihood of diseases affecting various organs, including the heart, liver, kidney, and pancreas, enabling comprehensive health assessments.
 
-# Libraries Used:
+### Tech Stack
 
-1.  sci-kit Learn
-2.  Flask
-3.  Joblib
-4.  Pandas
-5.  Numpy
-6.  Bootstrap
-7.  HTML & CSS
+- **HTML & CSS:** For the frontend design and structure.
+- **Bootstrap:** Frontend framework for responsive UI.
+- **Python:** Backend development and disease prediction model.
+  
+#### Libraries
 
-This whole Project is Deployed over <u>AWS instance over the Apache Web Server using Flask</u>
+- **scikit-learn:** Used for the Random Forest model and machine learning tasks.
+- **Pandas:** Data handling and manipulation.
+- **NumPy:** Numerical operations and array handling.
+- **Joblib:** Used to save and load the trained models.
 
-# Steps used for Deployment:
+### Dataset Used
 
-a. Created the ML model and saved it using joblib.<br>
-b. Created app.py and the webpage page it will render to.<br>
-c. Created an EC2 instance over RHEL8.<br>
-d. Similarly Deployed all models and connected them to the home page inside apache web server.<br>
+1. [Breast Cancer](https://www.kaggle.com/uciml/breast-cancer-wisconsin-data)
+2. [Diabetes](https://www.kaggle.com/uciml/pima-indians-diabetes-database)
+3. [Liver](https://www.kaggle.com/uciml/indian-liver-patient-records)
+4. [Heart Disease](https://www.kaggle.com/ronitf/heart-disease-uci)
+5. [Kidney Disease](https://www.kaggle.com/mansoordaku/ckdisease)
 
+  
+### Getting Started
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/YourUsername/DiagnosticHub.git
+   ```
+
+2. **Navigate to the Project Directory:**
+   ```bash
+   cd DiagnosticHub
+   ```
+
+3. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+   
+4. **Run the Flask Application:**
+   ```bash
+   python app.py
+   ```
+4. **Access the Application:**
+   - Open your browser and go to http://localhost:5000 to start using the DiagnosticHub.
+
+### App Preview
+
+
+
+### Contributing
+
+We welcome contributions to make DiagnosticHub even more feature-rich and accurate. Please fork the repository, make your changes, and submit a pull request.
+
+### License
+
+This project is licensed under the [MIT License](LICENSE).
+
+### Acknowledgements
+
+- Special thanks to the open-source community for the tools and libraries used in this project.
+- Grateful for the Kaggle datasets that provided essential data for training the models.
+Feel free to explore, contribute, and create a vibrant chatting experience with ChatNexa!
