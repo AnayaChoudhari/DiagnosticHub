@@ -2,6 +2,12 @@
 
 DiagnosticHub is an advanced disease prediction system designed to predict the likelihood of conditions such as heart disease, diabetes, liver disease, kidney disease, and breast cancer. This project aims to enhance diagnostic accuracy, offering a reliable tool for early detection of critical health conditions.
 
+### App Preview
+
+![Home page](img1.png)
+![About me page](img2.png)
+![Disease prediction page](img3.png)
+
 ### Features
 
 - **Multi-Disease Prediction**: Predicts the likelihood of developing heart disease, diabetes, liver disease, kidney disease, and breast cancer using advanced machine learning models.
@@ -53,12 +59,6 @@ DiagnosticHub is an advanced disease prediction system designed to predict the l
    ```
 4. **Access the Application:**
    - Open your browser and go to http://localhost:5000 to start using the DiagnosticHub.
-
-### App Preview
-
-![Home page](img1.png)
-![About me page](img2.png)
-![Disease prediction page](img3.png)
 
 ### Contributing
 
