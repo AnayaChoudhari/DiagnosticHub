@@ -1,38 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Result</title>
-    <style>
-      body {
-        display: flex;
-        justify-content: center;
-      }
-      .result-container {
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="result-container">
-      <h1 id="resultText"></h1>
-    </div>
-
-    <script>
-      // Generate a random number between 28 and 90
-      var randomNumber = Math.floor(Math.random() * (90 - 28 + 1)) + 28;
-      // Display the random number in the HTML
-      document.getElementById("resultText").innerText = randomNumber;
-
-      // Check if the number is less than 50 and update the text accordingly
-      if (randomNumber < 50) {
-        document.getElementById("resultText").innerText =
-          "No need to fear. You have no dangerous symptoms of the disease";
-      } else {
-        document.getElementById("resultText").innerText =
-          "Your chances of getting the disease are " + randomNumber + "%";
-      }
-    </script>
-  </body>
+<!doctype html>
+<html>
+   <body>
+       <h1> {{ prediction_text }}</h1>
+   </body>
 </html>
